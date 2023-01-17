@@ -1,11 +1,11 @@
 from prefect import task, flow
-from prefect_github.repository import GitHubRepository
+from prefect.filesystems import GitHub
 
 
 
 @flow()
 def my_flow():
-    github_repository_block = GitHubRepository.load("dbt-bq-repo2")
+    github_block = GitHub.load("dbt-bq-repo-2")
     print("What is your favorite number?")
-    return 42, github_repository_block
+    return 42, github_block
 
